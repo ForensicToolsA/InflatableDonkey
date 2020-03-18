@@ -56,6 +56,7 @@ public final class Authenticator {
 
         try {
             HttpUriRequest request = authenticationRequestFactory.apply(id, password);
+            request.setHeader("X-Mme-Client-Info", "<iPhone10,2> <iPhone OS;11.1.1;15G77)> <com.apple.cloudkit.CloudKitDaemon/482.30 (com.apple.cloudd/482.30)>");
             NSDictionary authentication = httpClient.execute(request, nsDictionaryResponseHandler);
             logger.debug("-- authenticate() - authentication: {}", authentication.toASCIIPropertyList());
 

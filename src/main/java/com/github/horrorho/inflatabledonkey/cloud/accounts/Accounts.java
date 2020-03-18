@@ -57,6 +57,7 @@ public final class Accounts {
         HttpUriRequest accountSettingsRequest = AccountSettingsRequestFactory.instance()
                 .apply(auth.dsPrsID(), auth.mmeAuthToken());
 
+        accountSettingsRequest.setHeader("X-Mme-Client-Info", "<iPhone10,2> <iPhone OS;11.1.1;15G77)> <com.apple.cloudkit.CloudKitDaemon/482.30 (com.apple.cloudd/482.30)>");
         NSDictionary settings
                 = httpClient.execute(accountSettingsRequest, PropertyListResponseHandler.dictionary());
 
